@@ -1,5 +1,5 @@
 # cmdutil
-A python utility for (sanely an non-annoyingly) running shell commands within a python script. Simply pass a shell command as an argument. It will return the stdout as a string and will raise an exception if the process returns a non-zero status.
+A python utility for (sanely an non-annoyingly) running shell commands within a python script. Simply pass a shell command as an argument. It will return the stdout as a string and will raise a ValueError if the process returns a non-zero status.
 
 Use:
 
@@ -15,5 +15,14 @@ cmd = "tar -czvf archive.tar.gz archive"
 console_output = run_command(cmd)
 
 ```
+Args:
 
+cmd: str, a shell command to be executed
+verbose: bool, default True, Whether to print annotations of the command being run and the outcome of the command.
+
+Returns:
+
+str: Standard output from command in UTF8 encoding.
+
+Raises: ValueError, listing standard error and exit status if the process returned a non-zero status.
 
